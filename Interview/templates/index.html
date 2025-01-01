@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IPL Web API</title>
+  </head>
+  <body>
+    <h1>Team vs Team</h1>
+
+    <form action="/teamvteam", method="get">
+      <!-- <p>{{teams}}</p> -->
+      <label for=""> Select Team1 </label>
+      <select name="team1">
+        {% for items in teams %}
+        <option>{{items}}</option>
+        {% endfor %}
+      </select>
+      <br /><br />
+      <label for=""> Select Team2 </label>
+      <select name="team2">
+        {% for items in teams %}
+        <option>{{items}}</option>
+        {% endfor %}
+      </select>
+      <br /><br />
+      <input type="submit" value="Find Track Record" />
+    </form>
+
+    {% if result %} {% for i in result %}
+    <p>{{i}} : {{result[i]}}</p>
+    {% endfor %} {% endif %}
+  </body>
+</html>
